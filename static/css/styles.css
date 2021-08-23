@@ -1,0 +1,201 @@
+body {
+    background-color: #ffcc29;
+    font-family: 'Comfortaa', cursive;
+}
+
+a:hover {
+    color: #E3D0B9;
+}
+
+a:active {
+    background-color: #E3D0B9;
+}
+
+footer {
+    margin-top: 0;
+    height: 65px;
+    bottom: 0;
+    width: 100%;
+    background-color: #206a5d;
+
+}
+
+h1{
+    color: #206a5d !important;
+}
+
+h3 {
+    padding-top: 30vh;
+    border-bottom: 0;
+    color: #E1BC91;
+}
+
+h5 {
+     font-family: 'Dela Gothic One', cursive;
+     height: 70px;
+}
+
+h6 {
+    font-family: 'Dela Gothic One', cursive;
+    padding-top: 10px;
+    height: 40px;
+}
+
+i {
+    color: #62959C;
+    padding-top: 0.5%;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+  margin: 4px auto;
+}
+
+
+.border-white {
+       margin: 10px 25px 0 !important;
+}
+
+.btn-success {
+    margin-top: 5px important;
+    padding: 5px important;
+}
+
+.btn-outline-success {
+    margin-left: 25px !important;
+    margin-top : 10px !important;
+}
+
+.card-title h5 {
+         color: #81b214 important!
+}
+
+.custom-button {
+    background-color: #ec4646;
+    border-color: #E1BC91;
+    color: white;
+}
+
+.card {
+    background-color: #ffe268;
+}
+
+.card-container {
+    padding-top: 100px;
+}
+
+.card-subtitle {
+    padding-bottom: 0 !important;
+}
+
+.contact-icon {
+    color: #E1BC91;
+}
+
+.contact-icon:hover {
+    color: #E3D0B9;
+}
+
+.contact-jumbo {
+    height: 90vh;
+    padding-top: 35vh;
+    border-bottom: 0;
+    color: #E1BC91;
+}
+
+.copyright {
+  position: fixed;
+  right: 10px;
+  bottom: 1vh;
+  color: #C19277
+}
+
+.footer-div {
+    text-align: center !important;
+    justify-content: center;
+}
+
+.form-container {
+    padding: 150px 0;
+}
+
+.jumbotron, .navbar-brand {
+font-family: 'Dela Gothic One', cursive;
+}
+
+.main-area {
+    background-color: #62959C;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.mini-image {
+    height: 100px;
+    width: 100px;
+    margin: 15px auto;
+}
+
+.modal-content {
+    background-color: #ffcc29 !important;
+}
+
+.navbar-custom {
+    z-index: 10;
+    position:absolute;
+    background-color: #ffcc29;
+    position: fixed;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.nav-item {
+     font-family: 'Comfortaa', cursive;
+}
+
+.navbar-item {
+        color: #206a5d !important;
+}
+
+.navbar-brand {
+    font-family: 'Dela Gothic One', cursive;
+    padding-left: 50px;
+    font-size: 50px !important;
+    color: #206a5d !important;
+}
+
+.navbar-nav {
+    padding-right: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+
+.navbar-brand {
+    padding-left: 25px !important;
+    font-size: 30px !important;
+}
+}
+
+@media only screen and (max-width: 800px) and (min-width: 600px) {
+
+.navbar-brand {
+    padding-left: 35px !important;
+    font-size: 35px !important;
+}
+}
+
+@media screen and (max-width: 800px) {
+  .display-4 {
+    font-size: 2.5em;
+  }
+}
+
+#ask-cancel {
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+#collapse-filter {
+    margin-top: 100px;
+    z-index: 10;
+}

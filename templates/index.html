@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+
+<!--        Filter window Start-->
+<div class="container collapse" id="collapseContainer">
+    <div class="">
+        <div class="">
+            <div class="card" id="collapse-filter">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #206a5d;">Filter Results</h5>
+                    {{ wtf.quick_form(form, novalidate=True) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    Filter Window End-->
+
+<!-- Container for displaying cafe cards -->
+<div class="container">
+    <div class="row py-3">
+        <div class="col" id="main">
+            <div class="container card-container">
+                <div class="row">
+                    {% for cafe in cafe_list %}
+                    {% set wifi_yes, toilet_yes, sockets_yes, take_calls_yes ="No", "No", "No", "No" %}
+                    {% if cafe.has_wifi %}
+                    {% set wifi_yes="Yes" %}
+                    {% endif %}
+                    {% if cafe.has_toilet %}
+                    {% set toilet_yes="Yes" %}
+                    {% endif %}
+                    {% if cafe.has_sockets %}
+                    {% set sockets_yes="Yes" %}
+                    {% endif %}
+                    {% if cafe.can_take_calls %}
+                    {% set take_calls_yes="Yes" %}
+                    {% endif %}
+                    <div class="card col-sm-auto col-xl-3 col-lg-4 col-md-6 " style="width: 25rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: #206a5d;">{{ cafe['name'] }}</h5>
+                            <img class="card-img-top" src="{{ cafe['img_url'] }}" alt="Cafe image">
+                            <h6 class="card-subtitle mb-2 text-muted">{{ cafe['location'] }}</h6>
+                            <a role="button" href="{{ cafe['map_url'] }}" target="_blank"
+                               class="btn btn-primary btn-sm btn-block btn-success modal-toggler" id="set-modal"
+                               data-target="#modal{{cafe.id}}">
+                                Google Map
+                            </a>
+                            <br>
+                            <p class="card-text my-0"><strong>Coffee Price</strong>: {{ cafe['coffee_price'] }}</p>
+                            <p class="card-text my-0"><strong>Has Wifi</strong>: {{ wifi_yes }}</p>
+                            <p class="card-text my-0"><strong>Has Sockets</strong>: {{ sockets_yes }}</p>
+                            <p class="card-text my-0"><strong>Has Toilets</strong>: {{ toilet_yes }}</p>
+                            <p class="card-text my-0"><strong>Can Take Calls</strong>: {{ take_calls_yes }}</p>
+                            <p class="card-text my-0"><strong>Number of Seats</strong>: {{ cafe['seats'] }}</p>
+                            <br>
+                            <button type="button" class="btn btn-primary btn-sm btn-danger modal-toggler float-right"
+                                    id="set-modal"
+                                    data-toggle="modal" data-target="#are_you_sure{{cafe.id}}">
+                                Delete
+                            </button>
+                            <br>
+                        </div>
+                    </div>
+                    <!--        End of container for displaying cafe cards-->
+
+                    <!--        Are you sure modal-->
+                    <div class="modal fade" id="are_you_sure{{cafe.id}}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ask-cancel">Are you sure you want to delete this
+                                        cafe?</h5>
+                                    <br>
+                                    <div class="container">
+                                        {% set pass_id=cafe.name %}
+                                        <form>
+                                            <button type="submit" class="btn btn-primary btn-sm  btn-block btn-success"
+                                                    id="delete"
+                                                    formaction="{{url_for('delete', id=cafe.id)}}">
+                                                Yes, Please Delete {{pass_id}}
+                                            </button>
+                                            <button type="button" class="btn btn-primary btn-sm btn-block btn-danger"
+                                                    id="cancel"
+                                                    data-dismiss="modal" aria-label="Close">
+                                                Cancel
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--          End are you sure modal-->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+<!--Javascript to scroll to top of page when filter is clicked-->
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+</script>
+{% endblock %}
